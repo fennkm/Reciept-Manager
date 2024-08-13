@@ -177,7 +177,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Kit\'s Awesome Receipt Manager"))
         self.nameLabel.setText(_translate("MainWindow", "Item Name"))
         self.quantityLabel.setText(_translate("MainWindow", "Quantity"))
         self.priceLabel.setText(_translate("MainWindow", "Price"))
