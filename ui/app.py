@@ -12,6 +12,7 @@ class Application(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
 
         fileName, _ = QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", "","*.eml")
+        # fileName = "./receipts/eml/broken.eml"
         self.items = fileCallback(fileName)
 
         self.actionButton.clicked.connect(lambda _ : buttonCallback(self.items, self))

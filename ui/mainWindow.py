@@ -12,7 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1040, 573)
+        MainWindow.resize(800, 550)
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -182,7 +182,7 @@ class Ui_MainWindow(object):
         self.quantityLabel.setText(_translate("MainWindow", "Quantity"))
         self.priceLabel.setText(_translate("MainWindow", "Price"))
         self.label_2.setText(_translate("MainWindow", "Kit"))
-        self.label_3.setText(_translate("MainWindow", "Nick"))
+        self.label_3.setText(_translate("MainWindow", "Tad"))
         self.label.setText(_translate("MainWindow", "Fenn"))
         self.nameLabel_3.setText(_translate("MainWindow", "Costs"))
         self.actionButton.setText(_translate("MainWindow", "Calculate"))

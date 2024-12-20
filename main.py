@@ -1,5 +1,3 @@
-import math
-
 from ui import Application
 
 def main():
@@ -54,15 +52,23 @@ def extractItems(filepath) -> list[tuple[str, int, int]]:
 
         # Skip to & extract item name
         skipTags(file, 2)
-        itemName = extractText(file) 
+        itemName = extractText(file)
 
         # Get quantity from item name
         itemQuantity = int(itemName[0])
         itemName = itemName[4:]
 
+        if len(itemName) > 60:
+            itemName = itemName[:60] + "..."
+
         # Skip to & extract item price
         skipTags(file, 2)
-        itemPrice = extractPrice(file)
+        try:
+            itemPrice = extractPrice(file)
+        except:
+            # If the "you still yet your discount" text is added
+            skipTags(file, 11)
+            itemPrice = extractPrice(file)
 
         items.append((itemName, itemQuantity, itemPrice))
 
@@ -79,6 +85,9 @@ def extractItems(filepath) -> list[tuple[str, int, int]]:
 
         # If we reach the end of the receipt, stop
         if itemName == "": break
+
+        if len(itemName) > 60:
+            itemName = itemName[:60] + "..."
 
         # Skip to and extract item quantity
         skipTags(file, 2)
@@ -115,7 +124,7 @@ def extractText(file) -> str:
         char = file.read(1)
 
     # Strip junk in item name
-    return text.replace("&amp;", "&").replace(" =20", "").replace("=", "").replace("\n", "").lstrip().rstrip()
+    return text.replace("&amp;", "&").replace(" =09", "").replace(" =20", "").replace("=", "").replace("\n", "").lstrip().rstrip()
 
 # Extracts text up until the start of the next tag, then strips and formats as price
 def extractNum(file) -> int:
